@@ -1,10 +1,10 @@
 const StringStorageConract = artifacts.require('StringStorage');
 
 contract('StringStorage', async(accounts) => {
-    describe("Strign Storage", async() => {
+    describe("String Storage", async() => {
       let instance;
       beforeEach(async() => {
-        instance = StringStorage.deployed();
+        instance = StringStorageConract.deployed();
         [owner,alice, bob] = accounts;
       });
 
