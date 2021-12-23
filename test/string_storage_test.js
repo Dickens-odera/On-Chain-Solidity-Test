@@ -4,7 +4,7 @@ contract('StringStorage', async(accounts) => {
     describe("String Storage", async() => {
       let instance;
       beforeEach(async() => {
-        instance = StringStorageConract.deployed();
+        instance = await StringStorageConract.deployed();
         [owner,alice, bob] = accounts;
       });
 
