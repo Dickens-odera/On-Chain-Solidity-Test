@@ -1,6 +1,6 @@
 const StringStorageConract = artifacts.require('StringStorage');
 
-contract('StringStorage', async(accounts) => {
+contract('StringStorageConract', async(accounts) => {
     describe("String Storage", async() => {
       let instance;
       beforeEach(async() => {
