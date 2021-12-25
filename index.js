@@ -3,7 +3,6 @@ const OnChainToken = require("./build/contracts/OnChainERC20Token.json");
 
 const init = async () => {
     const web3 = new Web3("http://localhost:7545");
-
     const id = await web3.eth.net.getId();
     const deployedNetwork = OnChainToken.networks[id];
     const eventExample = new web3.eth.Contract(
@@ -12,7 +11,7 @@ const init = async () => {
     );
 
     const accounts = await web3.eth.getAccounts();
-    const receipt = await OnChainToken.methods.transfer(accounts[1], 10)
+    const receipt = await eventExample.methods.transfer(accounts[1], 10)
         .send({ from: account[0]})
         .then(( response) => {
             console.log(response);
@@ -21,7 +20,7 @@ const init = async () => {
     console.log(receipt.events.Transfer.raw);
 
     //listen to Transfer events
-    OnChainToken.on("Transfer",( from, to, amount) => {
+    eventExample.on("Transfer",( from, to, amount) => {
         console.log('Listening to the Transfer event ....');
         console.log(from);
         console.log(to);

@@ -13,7 +13,7 @@ contract OnChainERC20Token is ERC20 {
   mapping(address => mapping(address => uint)) public _allowances;
 
   constructor(uint initialSupply) public ERC20("OnChain Token","ONT") {
-    _mint(msg.sender, initialSupply);
+    _mint(msg.sender, initialSupply * 10 ** 18);
   }
 
   function balanceOf(address _tokenOwner) public view virtual override returns(uint){
